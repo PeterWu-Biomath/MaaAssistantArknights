@@ -874,6 +874,7 @@ C:\leidian\LDPlayer9
     <system:String x:Key="Recruit">{key=Recruiting}</system:String>
     <system:String x:Key="Base">基地仕事</system:String>
     <system:String x:Key="Infrast">{key=Base}</system:String>
+    <system:String x:Key="MaterialSynthesis">素材合成</system:String>
     <system:String x:Key="Combat">作戦</system:String>
     <system:String x:Key="Fight">{key=Combat}</system:String>
     <system:String x:Key="Visiting">戦友訪問</system:String>

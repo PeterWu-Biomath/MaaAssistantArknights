@@ -44,6 +44,8 @@ public class TaskSettingVisibilityInfo : PropertyChangedBase
 
     public bool Infrast { get => field; set => SetAndNotify(ref field, value); }
 
+    public bool MaterialSynthesis { get => field; set => SetAndNotify(ref field, value); }
+
     public bool Fight { get => field; set => SetAndNotify(ref field, value); }
 
     public bool Mall { get => field; set => SetAndNotify(ref field, value); }
@@ -152,6 +154,7 @@ public class TaskSettingVisibilityInfo : PropertyChangedBase
             StartUpTask => StartUp = enable,
             RecruitTask => Recruit = enable,
             InfrastTask => Infrast = enable,
+            MaterialSynthesisTask => MaterialSynthesis = enable,
             FightTask => Fight = enable,
             MallTask => Mall = enable,
             AwardTask => Award = enable,
@@ -194,6 +197,7 @@ public class TaskSettingVisibilityInfo : PropertyChangedBase
         StartUp = false;
         Recruit = false;
         Infrast = false;
+        MaterialSynthesis = false;
         Fight = false;
         Mall = false;
         Award = false;

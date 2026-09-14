@@ -395,7 +395,11 @@
                                             <MenuItem
                                                 Command="{s:Action AddTaskQueueTask}"
                                                 CommandParameter="{Binding TaskTypeList[11].Value}"
-                                                Header="{Binding TaskTypeList[11].Display}"
+                                                Header="{Binding TaskTypeList[11].Display}" />
+                                            <MenuItem
+                                                Command="{s:Action AddTaskQueueTask}"
+                                                CommandParameter="{Binding TaskTypeList[12].Value}"
+                                                Header="{Binding TaskTypeList[12].Display}"
                                                 Visibility="{c:Binding ShowDebugTask}" />
                                         </Menu>
                                     </Border>
@@ -618,6 +622,12 @@
                                 DataContext="{Binding InfrastTask}"
                                 IsEnabled="{Binding DataContext.Run.Idle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
                                 Visibility="{c:Binding DataContext.TaskSettingVisibilities.Infrast,
+                                                       RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                                      AncestorType={x:Type UserControl}}}" />
+                            <taskQueue:MaterialSynthesisSettingsUserControl
+                                DataContext="{Binding MaterialSynthesisTask}"
+                                IsEnabled="{Binding DataContext.Run.Idle, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}"
+                                Visibility="{c:Binding DataContext.TaskSettingVisibilities.MaterialSynthesis,
                                                        RelativeSource={RelativeSource Mode=FindAncestor,
                                                                                       AncestorType={x:Type UserControl}}}" />
                             <taskQueue:MallSettingsUserControl

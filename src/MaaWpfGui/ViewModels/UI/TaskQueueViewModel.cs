@@ -113,6 +113,11 @@ public class TaskQueueViewModel : Screen
     public static InfrastSettingsUserControlModel InfrastTask => InfrastSettingsUserControlModel.Instance;
 
     /// <summary>
+    /// Gets 材料合成任务Model
+    /// </summary>
+    public static MaterialSynthesisSettingsUserControlModel MaterialSynthesisTask => MaterialSynthesisSettingsUserControlModel.Instance;
+
+    /// <summary>
     /// Gets 领取奖励任务
     /// </summary>
     public static AwardSettingsUserControlModel AwardTask => AwardSettingsUserControlModel.Instance;
@@ -1576,6 +1581,7 @@ public class TaskQueueViewModel : Screen
             new GenericCombinedData<Type> { Display = LocalizationHelper.GetString("StartUp"), Value = typeof(StartUpTask) },
             new GenericCombinedData<Type> { Display = LocalizationHelper.GetString("Fight"), Value = typeof(FightTask) },
             new GenericCombinedData<Type> { Display = LocalizationHelper.GetString("Infrast"), Value = typeof(InfrastTask) },
+            new GenericCombinedData<Type> { Display = LocalizationHelper.GetString("MaterialSynthesis"), Value = typeof(MaterialSynthesisTask) },
             new GenericCombinedData<Type> { Display = LocalizationHelper.GetString("Recruit"), Value = typeof(RecruitTask) },
             new GenericCombinedData<Type> { Display = LocalizationHelper.GetString("Mall"), Value = typeof(MallTask) },
             new GenericCombinedData<Type> { Display = LocalizationHelper.GetString("Award"), Value = typeof(AwardTask) },
@@ -1595,6 +1601,7 @@ public class TaskQueueViewModel : Screen
                 nameof(StartUpTask) => LocalizationHelper.GetString("StartUp"),
                 nameof(FightTask) => LocalizationHelper.GetString("Fight"),
                 nameof(InfrastTask) => LocalizationHelper.GetString("Infrast"),
+                nameof(MaterialSynthesisTask) => LocalizationHelper.GetString("MaterialSynthesis"),
                 nameof(RecruitTask) => LocalizationHelper.GetString("Recruit"),
                 nameof(MallTask) => LocalizationHelper.GetString("Mall"),
                 nameof(AwardTask) => LocalizationHelper.GetString("Award"),

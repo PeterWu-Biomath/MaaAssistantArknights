@@ -871,6 +871,7 @@ C:\leidian\LDPlayer9
     <system:String x:Key="Recruit">{key=Recruiting}</system:String>
     <system:String x:Key="Base">基建换班</system:String>
     <system:String x:Key="Infrast">{key=Base}</system:String>
+    <system:String x:Key="MaterialSynthesis">材料合成</system:String>
     <system:String x:Key="Combat">理智作战</system:String>
     <system:String x:Key="Fight">{key=Combat}</system:String>
     <system:String x:Key="Visiting">访问好友</system:String>

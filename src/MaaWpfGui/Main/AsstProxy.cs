@@ -3264,6 +3264,9 @@ public class AsstProxy
         /// <summary>基建</summary>
         Infrast,
 
+        /// <summary>材料合成</summary>
+        MaterialSynthesis,
+
         /// <summary>获取信用点/访问好友/信用商店</summary>
         Mall,
 

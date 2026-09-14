@@ -873,6 +873,7 @@ C:\leidian\LDPlayer9
     <system:String x:Key="Recruit">{key=Recruiting}</system:String>
     <system:String x:Key="Base">기반시설 교대</system:String>
     <system:String x:Key="Infrast">{key=Base}</system:String>
+    <system:String x:Key="MaterialSynthesis">재료 합성</system:String>
     <system:String x:Key="Combat">이성 사용</system:String>
     <system:String x:Key="Fight">{key=Combat}</system:String>
     <system:String x:Key="Visiting">친구 방문</system:String>
