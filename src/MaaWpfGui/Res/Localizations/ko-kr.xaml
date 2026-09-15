@@ -1218,6 +1218,7 @@ C:\leidian\LDPlayer9
     <system:String x:Key="MiniGame@MaterialSynthesis">재료 자동 합성</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesisTip" xml:space="preserve">대상 재료의 가공소 합성 화면에 직접 들어간 뒤 시작하세요.&#10;합성 가능한 하위 재료를 재귀적으로 합성하며, 재료가 부족하면 중지합니다.</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@StartLog">재료 자동 합성 시작</system:String>
+    <system:String x:Key="MiniGame@MaterialSynthesis@StockLog">{0}: {1}/{2}</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@MaterialLog">현재 재료: {0}, {1}개 더 필요 ({2}단계)</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientLog">{0}의 {1}번째 하위 재료 보충</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientUnavailableLog">{0}의 {1}번째 하위 재료 합성 불가</system:String>

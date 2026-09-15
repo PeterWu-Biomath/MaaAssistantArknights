@@ -1217,6 +1217,7 @@ C:\leidian\LDPlayer9
     <system:String x:Key="MiniGame@MaterialSynthesis">自動合成材料</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesisTip" xml:space="preserve">請先手動進入目標材料的加工站合成頁，再開始任務。&#10;會遞迴合成可加工的下級材料，材料不足時停止。</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@StartLog">開始自動合成材料</system:String>
+    <system:String x:Key="MiniGame@MaterialSynthesis@StockLog">{0}：{1}/{2}</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@MaterialLog">目前材料：{0}，還需合成 {1} 個（第 {2} 層）</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientLog">{0} 的第 {1} 種下級材料不足，正在補充</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientUnavailableLog">{0} 的第 {1} 種下級材料無法合成</system:String>

@@ -1217,6 +1217,7 @@ Only level rewards can be farmed; to get the Engraved Medal, all ｢Key Objectiv
     <system:String x:Key="MiniGame@MaterialSynthesis">Automatic Material Synthesis</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesisTip" xml:space="preserve">Open the synthesis page for the target material in the Workshop before starting.&#10;MAA recursively synthesizes available lower-tier materials and stops when ingredients are insufficient.</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@StartLog">Starting automatic material synthesis</system:String>
+    <system:String x:Key="MiniGame@MaterialSynthesis@StockLog">{0}: {1}/{2}</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@MaterialLog">Current material: {0}, {1} remaining (depth {2})</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientLog">Synthesizing missing ingredient {1} for {0}</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientUnavailableLog">Ingredient {1} for {0} cannot be synthesized</system:String>

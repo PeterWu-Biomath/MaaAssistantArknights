@@ -1219,6 +1219,7 @@ C:\leidian\LDPlayer9
     <system:String x:Key="MiniGame@MaterialSynthesis">素材自動合成</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesisTip" xml:space="preserve">対象素材の加工所の合成画面を手動で開いてから開始してください。&#10;合成可能な下位素材を再帰的に合成し、素材が不足すると停止します。</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@StartLog">素材の自動合成を開始します</system:String>
+    <system:String x:Key="MiniGame@MaterialSynthesis@StockLog">{0}：{1}/{2}</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@MaterialLog">現在の素材：{0}、残り {1} 個（第 {2} 階層）</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientLog">{0} の第 {1} 下位素材が不足しているため、補充します</system:String>
     <system:String x:Key="MiniGame@MaterialSynthesis@IngredientUnavailableLog">{0} の第 {1} 下位素材は合成できません</system:String>

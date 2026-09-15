@@ -2652,6 +2652,27 @@ public class AsstProxy
                     splitMode: TaskQueueViewModel.LogCardSplitMode.Before);
                 break;
 
+            case "MaterialSynthesisStock":
+                {
+                    var items = details?["items"] as JArray;
+                    if (items is not { Count: > 0 })
+                    {
+                        break;
+                    }
+
+                    var lines = new List<string>(items.Count);
+                    foreach (var item in items)
+                    {
+                        lines.Add(LocalizationHelper.GetStringFormat(
+                            "MiniGame@MaterialSynthesis@StockLog",
+                            item?["material"]?.ToString() ?? string.Empty,
+                            (int)(item?["current"] ?? 0),
+                            (int)(item?["target"] ?? 0)));
+                    }
+                    Instances.TaskQueueViewModel.AddLog(string.Join(Environment.NewLine, lines), UiLogColor.Info);
+                    break;
+                }
+
             case "MaterialSynthesisMaterial":
                 Instances.TaskQueueViewModel.AddLog(
                     LocalizationHelper.GetStringFormat(

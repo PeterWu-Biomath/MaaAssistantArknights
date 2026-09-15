@@ -9,6 +9,7 @@
 #include "Config/TaskData.h"
 #include "Controller/Controller.h"
 #include "Task/Infrast/InfrastProcessingTask.h"
+#include "Task/Miscellaneous/DepotRecognitionTask.h"
 #include "Task/ProcessTask.h"
 #include "Utils/Logger.hpp"
 #include "Vision/Miscellaneous/MaterialSynthesisImageAnalyzer.h"
@@ -39,6 +40,8 @@ bool asst::MaterialSynthesisTaskPlugin::_run()
         return false;
     }
     report_status("MaterialSynthesisStart");
+
+    report_target_stock();
 
     if (!detect_task("MiniGame@MaterialSynthesis@Workshop")) {
         if (need_exit()) {
@@ -367,6 +370,65 @@ bool asst::MaterialSynthesisTaskPlugin::return_to_workshop()
         }
     }
     return detect_task("MiniGame@MaterialSynthesis@Workshop");
+}
+
+void asst::MaterialSynthesisTaskPlugin::report_target_stock()
+{
+    LogTraceFunction;
+
+    // 进入仓库并扫描当前持有量，复用「小工具 / 仓库识别」。
+    ProcessTask enter_depot(*this, { "DepotBegin" });
+    enter_depot.set_ignore_error(true);
+    enter_depot.run();
+    if (need_exit()) {
+        return;
+    }
+
+    DepotRecognitionTask recognition_task(m_callback, m_inst, m_task_chain);
+    recognition_task.set_retry_times(0);
+    if (!recognition_task.run()) {
+        Log.error("MaterialSynthesis | depot recognition failed");
+        return;
+    }
+    const auto& items = recognition_task.get_items();
+
+    // 目标库存：技巧概要·卷3 特例为 40；紫色材料 10；蓝色材料 20。
+    // 统计所有目标材料（含当前数量为 0 的项）。
+    json::array stock_items;
+    for (const std::string& item_id : ItemData.get_ordered_non_chip_formula_item_id()) {
+        const auto rarity = ItemData.get_item_rarity(item_id);
+        if (!rarity || (*rarity != 3 && *rarity != 4)) {
+            continue;
+        }
+        const std::string& name = ItemData.get_item_name(item_id);
+        if (name.find("芯片") != std::string::npos) {
+            continue;
+        }
+        const int target = item_id == "3303" ? 40 : (*rarity == 4 ? 10 : 20);
+        int current = 0;
+        if (auto iter = items.find(item_id); iter != items.end()) {
+            current = iter->second.quantity;
+        }
+        Log.info(
+            "MaterialSynthesis | target stock",
+            item_id,
+            name,
+            "rarity",
+            *rarity,
+            "current",
+            current,
+            "target",
+            target);
+        stock_items.emplace_back(json::object {
+            { "material", name },
+            { "current", current },
+            { "target", target },
+        });
+    }
+    report_status("MaterialSynthesisStock", json::object { { "items", std::move(stock_items) } });
+
+    // 回到主页，保持已知状态。
+    click_return_button();
 }
 
 std::optional<int> asst::MaterialSynthesisTaskPlugin::read_number(const std::string& task_name)

@@ -14,6 +14,9 @@
 #nullable enable
 using System.Collections.Generic;
 using MaaWpfGui.Configuration.Single.MaaTask;
+using MaaWpfGui.Helper;
+using MaaWpfGui.Models.AsstTasks;
+using static MaaWpfGui.Main.AsstProxy;
 
 namespace MaaWpfGui.ViewModels.UserControl.TaskQueue;
 
@@ -38,9 +41,19 @@ public class MaterialSynthesisSettingsUserControlModel : TaskSettingsViewModel, 
     {
         (bool? IsSuccess, IEnumerable<int> TaskId) ITaskQueueModelSerialize.Serialize(BaseTask? baseTask, int? taskId)
         {
-            // 材料合成任务：暂无实际逻辑，返回 null 表示跳过，运行队列时会显示为已跳过。
-            _ = (baseTask, taskId);
-            return (null, []);
+            if (baseTask is not MaterialSynthesisTask)
+            {
+                return (null, []);
+            }
+
+            var task = new AsstCustomTask() {
+                CustomTasks = ["MiniGame@MaterialSynthesis@Begin"],
+            };
+            return taskId switch {
+                int id when id > 0 => (Instances.AsstProxy.AsstSetTaskParamsEncoded(id, task), [id]),
+                null => FromSingle(Instances.AsstProxy.AsstAppendTaskWithEncoding(TaskType.MaterialSynthesis, task)),
+                _ => (null, []),
+            };
         }
     }
 }
